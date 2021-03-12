@@ -21,7 +21,6 @@ jobs:
           DOCKER_USER_NAME: ${{ secrets.DOCKERUSER_NAME }}
           DOCKER_USER_PASSWORD: ${{ secrets.DOCKER_USER_PASSWORD }}
         run: |
-          ls /usr/share/
           mv /usr/share/apache-maven-3.6.3/conf/settings.xml /usr/share/apache-maven-3.6.3/conf/settings.xml.bak
           cp maven-settings.xml /usr/share/apache-maven-3.6.3/conf/settings.xml
           mvn clean deploy -DskipTests
