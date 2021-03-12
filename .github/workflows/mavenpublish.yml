@@ -21,12 +21,7 @@ jobs:
           DOCKER_USER_NAME: ${{ secrets.DOCKERUSER_NAME }}
           DOCKER_USER_PASSWORD: ${{ secrets.DOCKER_USER_PASSWORD }}
         run: |
-          mv /usr/share/apache-maven-3.6.3/conf/settings.xml /usr/share/apache-maven-3.6.3/conf/settings.xml.bak
-          cp maven-settings.xml /usr/share/apache-maven-3.6.3/conf/settings.xml
-          mvn clean deploy -DskipTests
-          cp target/hello-dubbo-entity-1.0.0-SNAPSHOT.jar docker/hello-dubbo-entity-1.0.0-SNAPSHOT.jar
-          cd docker
-          docker build . --file Dockerfile --tag registry.cn-qingdao.aliyuncs.com/hello-dubbo/entity
+          echo ${DOCKER_USER_NAME}
+          echo ${DOCKER_USER_PASSWORD}
           docker login --username=${DOCKER_USER_NAME} --password=${DOCKER_USER_PASSWORD} registry.cn-qingdao.aliyuncs.com
-          docker push registry.cn-qingdao.aliyuncs.com/hello-dubbo/entity
 
