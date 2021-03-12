@@ -1,4 +1,4 @@
-name: cnheri-token-admin
+name: hello-dubbo-entity
 on:
   push:
     branches:
